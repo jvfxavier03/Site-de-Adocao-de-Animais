@@ -1,0 +1,186 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Animais",
+      "description": "API para gerenciamento de animais",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:21262",
+        "description": "Servidor local"
+      }
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Buscar todos os animais cadastrados",
+          "responses": {
+            "200": {
+              "description": "Lista de animais",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Animal": {
+                          "type": "string"
+                        },
+                        "Sexo": {
+                          "type": "string"
+                        },
+                        "Estado": {
+                          "type": "string"
+                        },
+                        "Cidade": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/{id}": {
+        "get": {
+          "summary": "Buscar animal por ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "ID do animal a ser buscado",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Animal encontrado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "Animal": {
+                        "type": "string"
+                      },
+                      "Sexo": {
+                        "type": "string"
+                      },
+                      "Estado": {
+                        "type": "string"
+                      },
+                      "Cidade": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Animal não encontrado"
+            }
+          }
+        },
+        "put": {
+          "summary": "Atualizar animal por ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "ID do animal a ser atualizado",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Dados do animal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Animal": {
+                      "type": "string"
+                    },
+                    "Sexo": {
+                      "type": "string"
+                    },
+                    "Estado": {
+                      "type": "string"
+                    },
+                    "Cidade": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Animal atualizado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "Animal": {
+                        "type": "string"
+                      },
+                      "Sexo": {
+                        "type": "string"
+                      },
+                      "Estado": {
+                        "type": "string"
+                      },
+                      "Cidade": {
+                        "type": "string"
+                        }
+                        }
+                        }
+                        }
+                        }
+                        },
+                        "404": {
+                        "description": "Animal não encontrado"
+                        }
+                        }
+                        },
+                        "delete": {
+                        "summary": "Excluir animal por ID",
+                        "parameters": [
+                        {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID do animal a ser excluído",
+                        "schema": {
+                        "type": "string"
+                        }
+                        }
+                        ],
+                        "responses": {
+                        "204": {
+                        "description": "Animal excluído"
+                        },
+                        "404": {
+                        "description": "Animal não encontrado"
+                        }
+                        }
+                        }
+                        }
+                        }
+                        }
+  
